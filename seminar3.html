@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ваше имя</title>
+</head>
+<body>
+    <form method="post" action="">
+        <label for="name">Введите ваше имя:</label>
+        <br>
+        <input type="text" id="name" name="name" pattern="[А-Яа-яЁё]{2,}" title="Пожалуйста, введите только буквы русского алфавита" required>
+        <br>
+        <input type="submit" value="Отправить">
+    </form>
+    <p id="output"></p>
+    <script>
+        const form = document.querySelector('form');
+        const output = document.querySelector('#output');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.querySelector('#name').value;
+            switch (name) {
+                case 'Алиса':
+                    output.textContent = "Привет, Алиса!";
+                    break;
+                case 'Боб':
+                    output.textContent = "Привет, Боб!";
+                    break;
+                default:
+                    output.textContent = "Привет, " + name + "!";
+                    break;
+            }
+        });
+    </script>
+</body>
+</html>
